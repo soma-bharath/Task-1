@@ -76,6 +76,11 @@ resource "aws_route" "private_subnet_nat_route" {
   nat_gateway_id  = aws_nat_gateway.my_nat_gateway.id
 }
 
+resource "aws_route_table_association" "private_subnet_association" {
+  count          = length(aws_subnet.private_subnet)
+  subnet_id      = aws_subnet.private_subnet[count.index].id
+  route_table_id = aws_route_table.private_route_table[count.index].id
+}
 
 resource "aws_security_group" "eks_cluster_sg" {
   name        = "eks-cluster-sg"
