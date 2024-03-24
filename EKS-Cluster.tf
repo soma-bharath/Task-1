@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "testekscluster" {
   name     = "test-eks-cluster"
-  role_arn = aws_iam_role.Eks_Cluster_Role.arn #"arn:aws:iam::357028046444:role/AmazonEKSClusterPolicy"
+  role_arn = aws_iam_role.Eks_Cluster_Role.arn
   tags = {
     Name = "test-eks-cluster"
   }
