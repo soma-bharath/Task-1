@@ -1,6 +1,6 @@
 
 resource "aws_sns_topic" "EKS_SNS" {
-  name = var.sns_name # Specify the name for your SNS topic
+  name = var.sns_name 
 }
 
 resource "aws_sns_topic_subscription" "email_subscription" {
