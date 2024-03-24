@@ -9,7 +9,7 @@ resource "aws_eks_node_group" "testeksclusternode" {
   labels                 = {}
   node_group_name        = "test-eks-nodegroup-1"
   node_group_name_prefix = null
-  node_role_arn          = aws_iam_role.Amazon_EKS_NodeRole.arn #"arn:aws:iam::357028046444:role/AmazonEKSNodeRole"
+  node_role_arn          = aws_iam_role.Amazon_EKS_NodeRole.arn 
   release_version        = "1.28.1-20231002"
   subnet_ids             = aws_subnet.private_subnet[*].id 
   tags = {
@@ -26,7 +26,6 @@ resource "aws_eks_node_group" "testeksclusternode" {
   }
   update_config {
     max_unavailable = 1
-    #max_unavailable_percentage = 0
   }
   depends_on = [aws_eks_cluster.testekscluster]
 }
