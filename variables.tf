@@ -4,7 +4,7 @@ variable "availability_zones" {
 }
 
 variable "s3_bucket_name" {
-  default = "EKSS3Bucket102989"
+  default = "ekss3ucket102989"
 }
 
 variable "sns_name" {
