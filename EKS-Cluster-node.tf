@@ -11,7 +11,7 @@ resource "aws_eks_node_group" "testeksclusternode" {
   node_group_name_prefix = null
   node_role_arn          = aws_iam_role.Amazon_EKS_NodeRole.arn #"arn:aws:iam::357028046444:role/AmazonEKSNodeRole"
   release_version        = "1.28.1-20231002"
-  subnet_ids             = aws_subnet.private_subnet[*].id #["subnet-0354bed558262baa5", "subnet-03b843b0bfd58d350", "subnet-0542fb0ef8e8d648e", "subnet-0ff5a4fa1ae7957d8"]
+  subnet_ids             = aws_subnet.private_subnet[*].id 
   tags = {
     Name = "test-eks-nodegroup-1"
   }
