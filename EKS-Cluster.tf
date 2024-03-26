@@ -17,8 +17,8 @@ resource "aws_eks_cluster" "testekscluster" {
     endpoint_private_access = false
     endpoint_public_access  = true
     public_access_cidrs     = ["0.0.0.0/0"]
-    subnet_ids              = aws_subnet.private_subnet[*].id
-    security_group_ids      = [aws_security_group.eks_cluster_sg.id]
+    subnet_ids              = [for s in data.aws_subnet.private_subnets : s.id]
+    security_group_ids      = [data.aws_security_group.EKS-Security-Group.id]
   }
-  depends_on = [aws_iam_role.Eks_Cluster_Role, aws_iam_role.Amazon_EKS_NodeRole, aws_vpc.my_vpc, aws_subnet.private_subnet, aws_security_group.eks_cluster_sg]
+  depends_on = [aws_iam_role.Eks_Cluster_Role, aws_iam_role.Amazon_EKS_NodeRole]
 }
